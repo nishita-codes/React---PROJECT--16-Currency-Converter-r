@@ -14,3 +14,16 @@ body{
   background-image: linear-gradient(to right , #434343 0% ,black 100%);
   color:white;
 }
+.currency-Converter{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 5rem 0;
+  background-color: rgb(202, 197, 197);
+  color:black;
+  height:14rem;
+  width:50%;
+  margin-left:14rem;
+  padding:1rem;
+  
+}
