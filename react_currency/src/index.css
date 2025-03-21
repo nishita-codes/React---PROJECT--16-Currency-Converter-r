@@ -1,0 +1,16 @@
+* {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+  font-family: "urbanist";
+  letter-spacing: 0.1rem;
+}
+
+html{
+  font-size: 162.5%;
+}
+body{
+  background-color: rgb(27, 27, 51);
+  background-image: linear-gradient(to right , #434343 0% ,black 100%);
+  color:white;
+}
