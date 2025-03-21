@@ -27,3 +27,11 @@ body{
   padding:1rem;
   
 }
+h1{
+  color:rgb(83, 83, 190);
+}
+#horizontal{
+  margin:0.5rem;
+ background-color: black;
+  width : 25rem;
+}
