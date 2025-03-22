@@ -51,7 +51,7 @@ const App = () =>{
         </div>
       </div>
 
-      <button disabled={loading || amount<= 0}>
+      <button id = "button" disabled={loading || amount<= 0}>
         {loading ? "converting..." :"convert"}
       </button>
     </div>
