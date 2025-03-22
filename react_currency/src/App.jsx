@@ -14,15 +14,16 @@ const App = () =>{
       <h1>Currency Converter</h1>
       <hr id="horizontal" />
       <div>
-        <label htmlFor="currency_amount">Amount:
+        <label htmlFor="currency_amount" id="label">Amount:
           <input type="number"  id="currency_amount" value={amount} onClick={(e) =>setAmount(e.target.value)}/>
         </label>
       </div>
+      <hr id="horizontal" />
       <div className="currency-selector">
         <div>
           <label>
             From:
-            <select name="" id= "" value={fromCurrency} setFromCurrency={(e)=>setFromCurrency(e.target.value)}>
+            <select name="" id= "select" value={fromCurrency} setFromCurrency={(e)=>setFromCurrency(e.target.value)}>
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="INR">INR</option>
@@ -37,7 +38,7 @@ const App = () =>{
         <div>
           <label>
             To:
-            <select name="" id= "" value ={toCurrency} setToCurrency ={(e)=>setToCurrency(e.target.value)}>
+            <select name="" id= "select" value ={toCurrency} setToCurrency ={(e)=>setToCurrency(e.target.value)}>
             <option value="INR">INR</option>
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
@@ -56,7 +57,7 @@ const App = () =>{
     </div>
 
 
-    <hr/>
+   
     {convertedAmount  && (
       <div>
         <h2>
