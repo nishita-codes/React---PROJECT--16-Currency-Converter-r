@@ -1,4 +1,13 @@
+import { useState } from "react";
+
 const App = () =>{
+  const [amount,setAmount] = useState(0); //amount to convert
+  const [fromCurrency , setFromCurrency] = useState("USD"); //base currency
+  const [toCurrency , setToCurrency]= useState("INR"); //target currency
+  const [convertedAmount , setConvertedAmount]= useState(null); //converted
+  const [ loading ,setLoading] = useState(false); //loading state
+  const [ error , setError] = useState(null); // error state
+
   return <section className = "currency-Converter">
     
     <div className="currency-div">
@@ -6,14 +15,14 @@ const App = () =>{
       <hr id="horizontal" />
       <div>
         <label htmlFor="currency_amount">Amount:
-          <input type="number"  id="currency_amount"/>
+          <input type="number"  id="currency_amount" value={amount} onClick={(e) =>setAmount(e.target.value)}/>
         </label>
       </div>
       <div className="currency-selector">
         <div>
           <label>
             From:
-            <select name="" id= "">
+            <select name="" id= "" value={fromCurrency} setFromCurrency={(e)=>setFromCurrency(e.target.value)}>
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="INR">INR</option>
@@ -28,7 +37,7 @@ const App = () =>{
         <div>
           <label>
             To:
-            <select name="" id= "">
+            <select name="" id= "" value ={toCurrency} setToCurrency ={(e)=>setToCurrency(e.target.value)}>
             <option value="INR">INR</option>
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
@@ -45,6 +54,18 @@ const App = () =>{
         {loading ? "converting..." :"convert"}
       </button>
     </div>
+
+
+    <hr/>
+    {convertedAmount  && (
+      <div>
+        <h2>
+          {amount} {fromCurrency} = {convertedAmount.toFixed(2)} {toCurrency}
+        </h2>
+      </div>
+    )}
+
+    {error && <p>{error}</p>}
   </section>
 };
 export default App;
