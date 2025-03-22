@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { currencyConverter } from "../../api/postApi";
 
 const App = () =>{
   const [amount,setAmount] = useState(0); //amount to convert
@@ -7,6 +8,21 @@ const App = () =>{
   const [convertedAmount , setConvertedAmount]= useState(null); //converted
   const [ loading ,setLoading] = useState(false); //loading state
   const [ error , setError] = useState(null); // error state
+
+  const handleConvertCurrency = async ()=>{
+    setLoading(true);
+    try{
+     const res = await currencyConverter(fromCurrency, toCurrency ,amount);
+     const data = await res.data;
+     setLoading(false);
+     setConvertedAmount(0);
+     console.log(data);
+    }catch(error){
+      setError("Error fetching conversion rate");
+      console.error(error);
+    }
+   
+  }
 
   return <section className = "currency-Converter">
     
@@ -51,14 +67,12 @@ const App = () =>{
         </div>
       </div>
 
-      <button id = "button" disabled={loading || amount<= 0}>
+      <button id = "button" disabled={loading || amount<= 0}  onClick={handleConvertCurrency}>
         {loading ? "converting..." :"convert"}
       </button>
-    </div>
-
-
-   
-    {convertedAmount  && (
+     
+      <hr id="horizontal" />
+     {convertedAmount  && (
       <div>
         <h2>
           {amount} {fromCurrency} = {convertedAmount.toFixed(2)} {toCurrency}
@@ -67,6 +81,7 @@ const App = () =>{
     )}
 
     {error && <p>{error}</p>}
+    </div>
   </section>
 };
 export default App;

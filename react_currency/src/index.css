@@ -53,10 +53,13 @@ h1{
   margin-top:0;
 }
 #button{
- 
   margin-top:1.5rem;
   width: 20rem;
   border:1px solid black;
   color:black;
-  padding:0.2rem;
+  padding:0.2rem;   
 }
+#button:hover{
+  background-image: linear-gradient(to right , #535080 0% ,rgb(142, 38, 165) 100%);
+  color:white;
+  }
