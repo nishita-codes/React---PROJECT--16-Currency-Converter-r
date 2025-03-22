@@ -13,15 +13,14 @@ const App = () =>{
     setLoading(true);
     try{
      const res = await currencyConverter(fromCurrency, toCurrency ,amount);
-     const data = await res.data;
+     const {conversion_result} = await res.data;
      setLoading(false);
-     setConvertedAmount(0);
-     console.log(data);
+     setConvertedAmount(conversion_result);
+    
     }catch(error){
       setError("Error fetching conversion rate");
       console.error(error);
     }
-   
   }
 
   return <section className = "currency-Converter">
@@ -39,7 +38,7 @@ const App = () =>{
         <div>
           <label>
             From:
-            <select name="" id= "select" value={fromCurrency} setFromCurrency={(e)=>setFromCurrency(e.target.value)}>
+            <select name="" id= "select" value={fromCurrency} onChange={(e)=>setFromCurrency(e.target.value)}>
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="INR">INR</option>
@@ -54,7 +53,7 @@ const App = () =>{
         <div>
           <label>
             To:
-            <select name="" id= "select" value ={toCurrency} setToCurrency ={(e)=>setToCurrency(e.target.value)}>
+            <select name="" id= "select" value ={toCurrency} onChange ={(e)=>setToCurrency(e.target.value)}>
             <option value="INR">INR</option>
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>

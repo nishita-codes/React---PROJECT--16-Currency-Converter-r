@@ -57,7 +57,8 @@ h1{
   width: 20rem;
   border:1px solid black;
   color:black;
-  padding:0.2rem;   
+  padding:0.2rem; 
+  background-color: rgb(91, 153, 224);  
 }
 #button:hover{
   background-image: linear-gradient(to right , #535080 0% ,rgb(142, 38, 165) 100%);
