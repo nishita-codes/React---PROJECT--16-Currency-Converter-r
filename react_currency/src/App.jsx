@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { currencyConverter } from "../../api/postApi";
+import { currencyConverter } from "./api/postApi";
 
 const App = () =>{
   const [amount,setAmount] = useState(0); //amount to convert
@@ -13,9 +13,10 @@ const App = () =>{
     setLoading(true);
     try{
      const res = await currencyConverter(fromCurrency, toCurrency ,amount);
-     const {conversion_result} = await res.data;
+     const {conversion_result} = await res.data; //axios ka use kr rhe h to vo bu default data deta hai json() ka use krna jruri nhi hai 
      setLoading(false);
      setConvertedAmount(conversion_result);
+     setAmount(" ");
     
     }catch(error){
       setError("Error fetching conversion rate");
@@ -30,7 +31,7 @@ const App = () =>{
       <hr id="horizontal" />
       <div>
         <label htmlFor="currency_amount" id="label">Amount:
-          <input type="number"  id="currency_amount" value={amount} onClick={(e) =>setAmount(e.target.value)}/>
+          <input type="number"  id="currency_amount" value={amount} onChange={(e)=>setAmount(e.target.value)}/>
         </label>
       </div>
       <hr id="horizontal" />
