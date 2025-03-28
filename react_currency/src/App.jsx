@@ -20,8 +20,7 @@ const App = () =>{
     
     }catch(error){
       setError("Error fetching conversion rate");
-      console.error(error);
-    }
+      }
   }
 
   return <section className = "currency-Converter">
